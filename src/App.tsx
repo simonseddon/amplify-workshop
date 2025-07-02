@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import '@aws-amplify/ui-react/styles.css';
-import { ThemeProvider } from '@aws-amplify/ui-react';
+import { ThemeProvider, Authenticator } from '@aws-amplify/ui-react';
 import { Category, Recommended, Header, Footer, Product } from './components';
 
 function App() {
@@ -10,15 +10,17 @@ function App() {
 
   return (
     <ThemeProvider>
-        <Router basename={baseURL}>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Recommended />} />
-            <Route path="/category/:name" element={<Category />} />
-            <Route path="/product/:id" element={<Product />} />
-          </Routes>
-          <Footer />
-        </Router>
+        <Authenticator.Provider>
+          <Router basename={baseURL}>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Recommended />} />
+              <Route path="/category/:name" element={<Category />} />
+              <Route path="/product/:id" element={<Product />} />
+            </Routes>
+            <Footer />
+          </Router>
+        </Authenticator.Provider>
     </ThemeProvider>
   );
 }
