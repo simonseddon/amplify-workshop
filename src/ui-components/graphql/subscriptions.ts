@@ -21,8 +21,11 @@ export const onCreateCategory = /* GraphQL */ `
   }
 `;
 export const onCreateProduct = /* GraphQL */ `
-  subscription OnCreateProduct($filter: ModelSubscriptionProductFilterInput) {
-    onCreateProduct(filter: $filter) {
+  subscription OnCreateProduct(
+    $filter: ModelSubscriptionProductFilterInput
+    $owner: String
+  ) {
+    onCreateProduct(filter: $filter, owner: $owner) {
       category {
         createdAt
         description
@@ -40,6 +43,7 @@ export const onCreateProduct = /* GraphQL */ `
       id
       image
       name
+      owner
       price
       rating
       style
@@ -67,8 +71,11 @@ export const onDeleteCategory = /* GraphQL */ `
   }
 `;
 export const onDeleteProduct = /* GraphQL */ `
-  subscription OnDeleteProduct($filter: ModelSubscriptionProductFilterInput) {
-    onDeleteProduct(filter: $filter) {
+  subscription OnDeleteProduct(
+    $filter: ModelSubscriptionProductFilterInput
+    $owner: String
+  ) {
+    onDeleteProduct(filter: $filter, owner: $owner) {
       category {
         createdAt
         description
@@ -86,6 +93,7 @@ export const onDeleteProduct = /* GraphQL */ `
       id
       image
       name
+      owner
       price
       rating
       style
@@ -113,8 +121,11 @@ export const onUpdateCategory = /* GraphQL */ `
   }
 `;
 export const onUpdateProduct = /* GraphQL */ `
-  subscription OnUpdateProduct($filter: ModelSubscriptionProductFilterInput) {
-    onUpdateProduct(filter: $filter) {
+  subscription OnUpdateProduct(
+    $filter: ModelSubscriptionProductFilterInput
+    $owner: String
+  ) {
+    onUpdateProduct(filter: $filter, owner: $owner) {
       category {
         createdAt
         description
@@ -132,6 +143,7 @@ export const onUpdateProduct = /* GraphQL */ `
       id
       image
       name
+      owner
       price
       rating
       style

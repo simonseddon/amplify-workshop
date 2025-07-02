@@ -40,6 +40,7 @@ export const getProduct = /* GraphQL */ `
       id
       image
       name
+      owner
       price
       rating
       style
@@ -101,6 +102,7 @@ export const listProducts = /* GraphQL */ `
         id
         image
         name
+        owner
         price
         rating
         style

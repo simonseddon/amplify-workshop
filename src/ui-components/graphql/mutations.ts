@@ -46,6 +46,7 @@ export const createProduct = /* GraphQL */ `
       id
       image
       name
+      owner
       price
       rating
       style
@@ -98,6 +99,7 @@ export const deleteProduct = /* GraphQL */ `
       id
       image
       name
+      owner
       price
       rating
       style
@@ -150,6 +152,7 @@ export const updateProduct = /* GraphQL */ `
       id
       image
       name
+      owner
       price
       rating
       style
